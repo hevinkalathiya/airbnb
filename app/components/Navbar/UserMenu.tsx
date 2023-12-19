@@ -3,18 +3,20 @@ import React, { useCallback, useState } from "react";
 import { AiOutlineMenu } from "react-icons/ai";
 import Avatar from "../Avatar";
 import MenuItem from "./MenuItem";
+import { useRegisterModal } from "@/app/hooks/useRegisterModal";
 
 type Props = {};
 
 const UserMenu = (props: Props) => {
+  const registerModal = useRegisterModal();
   const [showMenu, setShowMenu] = useState(false);
 
   const toggleMenu = useCallback(() => {
     setShowMenu((prev) => !prev);
-  }, [showMenu]);
+  }, []);
 
   return (
-    <div className="relative  ">
+    <div className="relative">
       <div className=" flex flex-row items-center gap-3  ">
         <div className="hidden md:block rounded-full text-sm font-semibold py-3 px-4 hover:bg-neutral-100 transition cursor-pointer ">
           Airbnb Your Home
@@ -33,7 +35,8 @@ const UserMenu = (props: Props) => {
       {showMenu && (
         <div className="absolute rounded-xl shadow-md w-[40px] md:w-3/4 bg-white overflow-hidden top-12 right-0 text-sm ">
           <div className="flex flex-col cursor-pointer">
-            <MenuItem label="Login" onClick={()=>{}}/>
+            <MenuItem label="Login" onClick={registerModal.onOpen} />
+            <MenuItem label="Sign-up" onClick={registerModal.onOpen} />
           </div>
         </div>
       )}
