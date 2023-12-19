@@ -19,6 +19,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
+    //remove changes
     <html lang="en">
       <body className={inter.className}>
         <RegisterModal />
