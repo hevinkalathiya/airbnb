@@ -25,7 +25,6 @@ export default function RootLayout({
         <RegisterModal />
         {/* <Navbar /> */}
         {children}
-        {"test "}
       </body>
     </html>
   );
