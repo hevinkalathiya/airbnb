@@ -1,6 +1,6 @@
 import * as React from "react";
 
-import { cn } from "@/lib/utils";
+import { cn } from "@/app/lib/utils";
 import { BiDollar } from "react-icons/bi";
 import { FieldErrors, FieldValues, UseFormRegister } from "react-hook-form";
 
@@ -17,7 +17,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
   (
     {
       className,
-      type="text",
+      type = "text",
       id,
       disabled,
       formatPrice,
