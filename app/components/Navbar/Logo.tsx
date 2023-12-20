@@ -13,6 +13,7 @@ const Logo = () => {
             width={100}
             src="/images/logo.png"
             className="hidden md:block cursor-pointer"
+            priority={true}
         />
     );
 };

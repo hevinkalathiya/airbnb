@@ -1,14 +1,15 @@
 "use client";
 
-import { useRegisterModal } from "@/app/hooks/useRegisterModal";
+
 import React from "react";
 import { useForm, FieldValues, SubmitHandler } from "react-hook-form";
 import Modal from "./Modal";
 import Heading from "../Heading";
-import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
 import { FcGoogle } from "react-icons/fc";
 import { GithubIcon } from "lucide-react";
+import { Input } from "../ui/input";
+import { Button } from "../ui/button";
+import { useRegisterModal } from "@/app/hooks/useRegisterModal";
 
 type Props = {};
 
@@ -51,7 +52,6 @@ const RegisterModal = (props: Props) => {
       <Input
         id="password"
         label="Password"
-        type="password"
         register={register}
         errors={errors}
         required
