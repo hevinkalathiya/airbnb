@@ -1,11 +1,14 @@
-import React from 'react'
+import React from "react";
+import Navbar from "./components/navbar/Navbar";
 
-type Props = {}
+type Props = {};
 
 const page = (props: Props) => {
   return (
-    <div>page</div>
-  )
-}
+    <div>
+      <Navbar />
+    </div>
+  );
+};
 
-export default page
+export default page;
