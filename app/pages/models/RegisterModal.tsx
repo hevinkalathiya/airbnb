@@ -1,7 +1,6 @@
 "use client";
 
-
-import React from "react";
+import React, { useState } from "react";
 import { useForm, FieldValues, SubmitHandler } from "react-hook-form";
 import Modal from "./Modal";
 import Heading from "../Heading";
@@ -10,11 +9,15 @@ import { GithubIcon } from "lucide-react";
 import { Input } from "../ui/input";
 import { Button } from "../ui/button";
 import { useRegisterModal } from "@/app/hooks/useRegisterModal";
+import axios from "axios";
+import toast from "react-hot-toast";
 
 type Props = {};
 
 const RegisterModal = (props: Props) => {
   const registerModal = useRegisterModal();
+  // const loginModal = useRegisterModal();
+  const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const {
     register,
@@ -29,7 +32,21 @@ const RegisterModal = (props: Props) => {
   });
 
   const onSubmit: SubmitHandler<FieldValues> = (data) => {
-    console.log(data);
+    setIsLoading(true);
+
+    axios
+      .post("/api/register", data)
+      .then(() => {
+        toast.success("Registered!");
+        registerModal.onClose();
+        // loginModal.onOpen();
+      })
+      .catch((error) => {
+        toast.error(error);
+      })
+      .finally(() => {
+        setIsLoading(false);
+      });
   };
 
   const bodyContent = (
@@ -60,12 +77,21 @@ const RegisterModal = (props: Props) => {
   );
   const FooterContent = (
     <div className="flex flex-col gap-4 mt-3">
-      <Button className="w-full" variant="outline" text="Continue With Google" icon={FcGoogle}/>
-      <Button className="w-full" variant="outline" text="Continue With Github" icon={GithubIcon}/>
+      <Button
+        className="w-full"
+        variant="outline"
+        text="Continue With Google"
+        icon={FcGoogle}
+      />
+      <Button
+        className="w-full"
+        variant="outline"
+        text="Continue With Github"
+        icon={GithubIcon}
+      />
     </div>
   );
 
-  const isLoading = false; //TODO for now its hardcoded but in the future it will be come from react-query
   return (
     <Modal
       disabled={isLoading}

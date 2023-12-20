@@ -3,6 +3,7 @@ import { Nunito } from "next/font/google";
 import "./globals.css";
 import RegisterModal from "./pages/models/RegisterModal";
 import Navbar from "./pages/navbar/Navbar";
+import { Toaster } from "react-hot-toast";
 const inter = Nunito({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -20,6 +21,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
+        <Toaster/>
         <RegisterModal />
         <Navbar />
         {children}
