@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Nunito } from "next/font/google";
 import "./globals.css";
-import RegisterModal from "./components/models/RegisterModal";
+import RegisterModal from "./pages/models/RegisterModal";
 const inter = Nunito({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -20,7 +20,7 @@ export default function RootLayout({
     //remove changes
     <html lang="en">
       <body className={inter.className}>
-        <RegisterModal />
+        <RegisterModal/>
         {children}
       </body>
     </html>

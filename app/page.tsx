@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import Navbar from "./components/navbar/Navbar";
+import Navbar from "./pages/navbar/Navbar";
 
 type Props = {};
 
