@@ -83,7 +83,7 @@ const RegisterModal = (props: Props) => {
         variant="outline"
         text="Continue With Google"
         icon={FcGoogle}
-        onClick={() => signIn('github')}
+        onClick={() => signIn('google')}
         />
       <Button
         className="w-full"

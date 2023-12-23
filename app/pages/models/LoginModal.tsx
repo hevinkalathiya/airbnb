@@ -10,8 +10,8 @@ import { Input } from "../ui/input";
 import { Button } from "../ui/button";
 import { useLoginModal } from "@/app/hooks/useLoginModel";
 import toast from "react-hot-toast";
-import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
+import { signIn } from "next-auth/react";
 
 type Props = {};
 

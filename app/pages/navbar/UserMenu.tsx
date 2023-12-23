@@ -9,7 +9,7 @@ import { User } from "@prisma/client";
 import { signOut } from "next-auth/react";
 
 type Props = {
-  currentUser: User | null;
+  currentUser?: User | null;
 };
 
 const UserMenu: FC<Props> = ({ currentUser }) => {

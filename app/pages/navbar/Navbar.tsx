@@ -8,7 +8,7 @@ import UserMenu from "./UserMenu";
 import { User } from "@prisma/client";
 
 interface NavbarProops {
-  currentUser: User | null
+  currentUser?: User | null
 }
 
 const Navbar: FC<NavbarProops> = ({ currentUser }) => {
