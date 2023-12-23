@@ -1,18 +1,20 @@
 "use client";
 
 import Image from "next/image";
-import React from "react";
+import React, { FC } from "react";
 
-type Props = {};
+type Props = {
+  src?: string | null | undefined;
+};
 
-const Avatar = (props: Props) => {
+const Avatar: FC<Props> = ({ src }) => {
   return (
     <Image
       className="rounded-full"
       alt="avatar"
       height={30}
       width={30}
-      src="/images/placeholder.jpg"
+      src={src || "/images/placeholder.jpg"}
       priority={true}
     />
   );
