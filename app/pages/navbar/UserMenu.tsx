@@ -59,12 +59,6 @@ const UserMenu: FC<Props> = ({ currentUser }) => {
               <>
                 <MenuItem label="Login" onClick={loginModel.onOpen} />
                 <MenuItem label="Sign-up" onClick={registerModal.onOpen} />
-                <MenuItem
-                  label="LogOut"
-                  onClick={() => {
-                    signOut();
-                  }}
-                />
               </>
             )}
           </div>
