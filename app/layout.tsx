@@ -6,6 +6,7 @@ import Navbar from "./pages/navbar/Navbar";
 import { Toaster } from "react-hot-toast";
 import LoginModal from "./pages/models/LoginModal";
 import { getCurrentUser } from "./actions/getCurrentUser";
+import RentModal from "./pages/models/RentModal";
 
 const inter = Nunito({ subsets: ["latin"] });
 
@@ -30,6 +31,7 @@ export default async function RootLayout({
         <Toaster />
         <LoginModal />
         <RegisterModal />
+        <RentModal />
         <Navbar currentUser={currentUser} />
         {children}
       </body>

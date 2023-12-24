@@ -41,7 +41,6 @@ const LoginModal = (props: Props) => {
           toast.success("Logged In");
           router.refresh();
           loginModal.onClose();
-          console.log(response.error);
         }
         if (response?.error) {
           toast.error(response.error);
