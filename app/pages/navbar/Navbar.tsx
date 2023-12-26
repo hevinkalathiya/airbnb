@@ -9,10 +9,9 @@ import { User } from "@prisma/client";
 import Categories from "./Categories";
 
 interface NavbarProops {
-  currentUser?: User | null;
 }
 
-const Navbar: FC<NavbarProops> = ({ currentUser }) => {
+const Navbar: FC<NavbarProops> = ({  }) => {
   return (
     <div className="fixed w-full shadow-sm bg-white">
       <div className="py-4 border-b">
@@ -20,7 +19,7 @@ const Navbar: FC<NavbarProops> = ({ currentUser }) => {
           <div className="flex flex-row items-center justify-between gap-3 md:gap-0">
             <Logo />
             <Search />
-            <UserMenu currentUser={currentUser} />
+            <UserMenu  />
           </div>
         </Container>
       </div>

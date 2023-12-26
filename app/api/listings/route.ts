@@ -44,3 +44,12 @@ export async function POST(req: Request, res: Response) {
   });
   return NextResponse.json(listing);
 }
+
+export async function GET(req: Request, res: Response) {
+  const listings = await prisma.listing.findMany({
+    include: {
+      user: true,
+    },
+  });
+  return NextResponse.json(listings);
+}
