@@ -47,8 +47,8 @@ export async function POST(req: Request, res: Response) {
 
 export async function GET(req: Request, res: Response) {
   const listings = await prisma.listing.findMany({
-    include: {
-      user: true,
+    orderBy: {
+      createdAt: "desc",
     },
   });
   return NextResponse.json(listings);
