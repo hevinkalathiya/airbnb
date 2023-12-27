@@ -70,32 +70,14 @@ const ListingCard: FC<ListingCardProps> = ({
     >
       <div className="flex flex-col gap-2 w-full">
         <div
-          className="
-            aspect-square 
-            w-full 
-            relative 
-            overflow-hidden 
-            rounded-xl
-          "
-        >
+          className="aspect-square w-full relative overflow-hidden rounded-xl">
           <Image
             fill
-            className="
-              object-cover 
-              h-full 
-              w-full 
-              group-hover:scale-110 
-              transition
-            "
+            className="object-cover h-full w-full group-hover:scale-110 transition"
             src={listing.imageSrc}
             alt="Listing"
           />
-          <div
-            className="
-            absolute
-            top-3
-            right-3
-          "
+          <div className="absolute top-3 right-3 "
           >
             <Heartbutton listingId={listing.id} />
           </div>
