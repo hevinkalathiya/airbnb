@@ -1,32 +1,34 @@
-import { getServerSession } from "next-auth/next";
+//! Temporarily disabled beacuse its breaking the build
 
-import prisma from "@/app/lib/prismadb";
-import { authOptions } from "../api/auth/[...nextauth]/option";
+// import { getServerSession } from "next-auth/next";
 
-export async function getSession() {
-  return await getServerSession(authOptions);
-}
+// import prisma from "@/app/lib/prismadb";
+// import { authOptions } from "../api/auth/[...nextauth]/option";
 
-export async function getCurrentUser() {
-  try {
-    const session = await getSession();
+// export async function getSession() {
+//   return await getServerSession(authOptions);
+// }
 
-    if (!session?.user?.email) {
-      return null;
-    }
+// export async function getCurrentUser() {
+//   try {
+//     const session = await getSession();
 
-    const currentUser = await prisma.user.findUnique({
-      where: {
-        email: session?.user?.email as string,
-      },
-    });
-    if (!currentUser) {
-      console.error("User not found");
-      return null;
-    }
-    return currentUser;
-  } catch (error) {
-    console.error(error, "Error getting current user");
-    return null;
-  }
-}
+//     if (!session?.user?.email) {
+//       return null;
+//     }
+
+//     const currentUser = await prisma.user.findUnique({
+//       where: {
+//         email: session?.user?.email as string,
+//       },
+//     });
+//     if (!currentUser) {
+//       console.error("User not found");
+//       return null;
+//     }
+//     return currentUser;
+//   } catch (error) {
+//     console.error(error, "Error getting current user");
+//     return null;
+//   }
+// }
