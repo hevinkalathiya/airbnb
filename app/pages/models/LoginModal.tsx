@@ -77,8 +77,9 @@ const LoginModal = (props: Props) => {
         className="w-full"
         variant="outline"
         text="Continue With Google"
-        icon={FcGoogle}
+        icon={FcGoogle} 
         onClick={() => signIn('google')}
+        iconclass
       />
       <Button
         className="w-full"
@@ -86,6 +87,7 @@ const LoginModal = (props: Props) => {
         text="Continue With Github"
         icon={GithubIcon}
         onClick={() => signIn('github')}
+        iconclass
       />
     </div>
   );

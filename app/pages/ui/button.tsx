@@ -43,11 +43,23 @@ export interface ButtonProps
   asChild?: boolean;
   icon?: IconType | LucideIcon;
   text: string;
+  iconclass?: boolean;
+  iconclassName?: string;
 }
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   (
-    { className, variant, size, asChild = false, icon: Icon, text, ...props },
+    {
+      className,
+      variant,
+      size,
+      asChild = false,
+      icon: Icon,
+      text,
+      iconclass,
+      iconclassName,
+      ...props
+    },
     ref
   ) => {
     const Comp = asChild ? Slot : "button";
@@ -57,16 +69,13 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         ref={ref}
         {...props}
       >
+        {text}
         {Icon && (
           <Icon
             size={24}
-            className="
-              absolute
-              left-10
-            "
+            className={`${iconclass ? "absolute left-10" : iconclass} ${iconclassName}`}
           />
         )}
-        {text}
       </Comp>
     );
   }
