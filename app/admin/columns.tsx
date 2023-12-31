@@ -4,16 +4,19 @@ import { Listing } from "@prisma/client";
 import { ColumnDef } from "@tanstack/react-table";
 import { Badge } from "../pages/ui/ui/badge";
 import { ReactNode } from "react";
-import { DeleteIcon, Link, MoreHorizontal, Pencil, Trash } from "lucide-react";
+import { Link, MoreHorizontal, Pencil, Trash } from "lucide-react";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuLabel,
-  DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "../pages/ui/ui/dropdown-menu";
 import { Button } from "../pages/ui/button";
+import axios from "axios";
+import toast from "react-hot-toast";
+import { useRouter } from "next/navigation";
+import EditProfile from "./EditProfile";
 
 export const columns: ColumnDef<Listing>[] = [
   {
@@ -44,6 +47,13 @@ export const columns: ColumnDef<Listing>[] = [
     header: "Location",
   },
   {
+    header: "Edit",
+    cell: ({ row }) => {
+      const listingId = row.original.id;
+      return <EditProfile listingId={listingId} />;
+    },
+  },
+  {
     accessorKey: "price",
     header: "Price",
     cell: ({ row }) => {
@@ -65,6 +75,18 @@ export const columns: ColumnDef<Listing>[] = [
     header: () => <div className="text-start">Actions</div>,
     cell: ({ row }) => {
       const listing = row.original;
+      // eslint-disable-next-line react-hooks/rules-of-hooks
+      const router = useRouter();
+      const handleDelete = async () => {
+        try {
+          await axios.delete(`/api/listings/${listing.id}`);
+          toast.success("Listing deleted");
+          router.refresh();
+        } catch (error) {
+          console.error("Error deleting listing:", error);
+          toast.error("Error deleting listing");
+        }
+      };
       return (
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
@@ -77,12 +99,15 @@ export const columns: ColumnDef<Listing>[] = [
           </DropdownMenuTrigger>
           <DropdownMenuContent align="end" className="gap-y-2">
             <DropdownMenuLabel>Actions</DropdownMenuLabel>
-            <DropdownMenuItem className="flex justify-between text-red-600 hover:text-red-700 font-extrabold  cursor-pointer">
+            <DropdownMenuItem
+              className="flex justify-between text-red-600 hover:text-red-700 font-extrabold cursor-pointer"
+              onClick={handleDelete}
+            >
               DELETE <Trash color="red" size={18} />
             </DropdownMenuItem>
-            <DropdownMenuItem className="flex justify-between  font-extrabold  cursor-pointer">
-              EDIT <Pencil size={18}  />
-            </DropdownMenuItem>
+            {/* <DropdownMenuItem className="flex justify-between  font-extrabold  cursor-pointer">
+              EDIT <Pencil size={18} />
+            </DropdownMenuItem> */}
           </DropdownMenuContent>
         </DropdownMenu>
       );

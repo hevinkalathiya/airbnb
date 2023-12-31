@@ -10,7 +10,7 @@
     "cssVariables": true
   },
   "aliases": {
-    "components": "@/app/pages",
+    "components": "@/app/pages/ui/defaultInput",
     "utils": "@/app/lib/utils"
   }
 }

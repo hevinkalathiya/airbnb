@@ -5,15 +5,17 @@ type HeadingProps = {
   title: string;
   subtitle?: string;
   center?: boolean;
+  className?: string;
 };
 
 const Heading: FC<HeadingProps> = ({
   title,
   subtitle,
   center,
+  className,
 }: HeadingProps) => {
   return (
-    <div className={center ? "text-center" : "text-start"}>
+    <div className={`${center ? "text-center" : "text-start"} ${className} `}>
       <div className="text-2xl font-bold">{title}</div>
       <div className="font-light text-neutral-500 mt-2">{subtitle}</div>
     </div>
