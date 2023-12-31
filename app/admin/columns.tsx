@@ -4,7 +4,7 @@ import { Listing } from "@prisma/client";
 import { ColumnDef } from "@tanstack/react-table";
 import { Badge } from "../pages/ui/ui/badge";
 import { ReactNode } from "react";
-import { Link, MoreHorizontal, Pencil, Trash } from "lucide-react";
+import { ArrowUpDown, Link, MoreHorizontal, Pencil, Trash } from "lucide-react";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -21,7 +21,17 @@ import EditProfile from "./EditProfile";
 export const columns: ColumnDef<Listing>[] = [
   {
     accessorKey: "title",
-    header: "Title",
+    header: ({ column }) => {
+      return (
+        <Button
+          variant="ghost"
+          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+          text="Title"
+          icon={ArrowUpDown}
+          iconclassName="ml-2 h-4 w-4"
+        />
+      );
+    },
     cell: ({ row }) => {
       const title = row.getValue("title");
       return (
@@ -55,7 +65,17 @@ export const columns: ColumnDef<Listing>[] = [
   },
   {
     accessorKey: "price",
-    header: "Price",
+    header: ({ column }) => {
+      return (
+        <Button
+          variant="ghost"
+          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+          text="Price"
+          icon={ArrowUpDown}
+          iconclassName="ml-2 h-4 w-4"
+        />
+      );
+    },
     cell: ({ row }) => {
       const price = parseFloat(row.getValue("price"));
       const formatted = new Intl.NumberFormat("en-US", {
