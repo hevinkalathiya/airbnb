@@ -20,7 +20,4 @@ export async function GET(request: Request, { params }: { params: IParams }) {
   } catch (error) {
     return NextResponse.json(error);
   }
-  if (!params.listingId) {
-    return null;
-  }
 }
