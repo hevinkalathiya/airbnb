@@ -21,6 +21,7 @@ import {
 import { useState } from "react";
 import { Button } from "../pages/ui/button";
 
+
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];
   data: TData[];
