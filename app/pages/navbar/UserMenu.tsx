@@ -51,7 +51,7 @@ const UserMenu: FC<Props> = ({}) => {
         </div>
       </div>
       {showMenu && (
-        <div className="absolute rounded-xl shadow-md w-[160px] md:w-3/4 bg-white overflow-hidden top-12 right-0 text-sm ">
+        <div className="absolute rounded-xl shadow-md w-[160px] md:w-3/4 z-50 bg-white overflow-hidden top-12 right-0 text-sm ">
           <div className="flex flex-col cursor-pointer">
             {session ? (
               <>

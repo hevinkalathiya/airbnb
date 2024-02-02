@@ -34,7 +34,7 @@ export default async function RootLayout({
           <RegisterModal />
           <RentModal />
           <Navbar />
-          <div className="pt-28 pb-20">{children}</div>
+          <div className="pb-20">{children}</div>
         </SessionProvider>
       </body>
     </html>
